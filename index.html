@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background: url("ORIG.jpg") center/cover no-repeat;
+        transition: background 0.5s ease-in-out;
+        /* Add a smooth transition for the background */
+        overflow: hidden;
+        /* Hide potential overflow */
+      }
+
+      .happy-birthday {
+        font-size: 10em;
+        font-weight: bold;
+        font-style: italic;
+        position: relative;
+        display: inline-block;
+        margin-bottom: 20px;
+        animation: jumpLetters 1s infinite alternate;
+        /* Apply the animation to the entire text */
+        -webkit-text-stroke: 2px #a59f9d;
+        /* WebKit browsers (Safari, Chrome) */
+      }
+
+      @keyframes jumpLetters {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .letter {
+        display: inline-block;
+        color: #ff4500;
+        /* Orange Red */
+      }
+
+      #showMessageButton,
+      #linkButton,
+      #newButton,
+      #changeBackgroundButton {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        outline: none;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      #showMessageButton {
+        background-color: #ff0000;
+        /* Initial background color */
+        color: #fff;
+      }
+
+      #linkButton {
+        background-color: #007bff;
+        /* Button color */
+        color: #fff;
+      }
+
+      #newButton {
+        background-color: #ff9800;
+        /* Button color */
+        color: #fff;
+      }
+
+      #changeBackgroundButton {
+        background-color: #e91e63;
+        /* Button color */
+        color: #fff;
+      }
+
+      #showMessageButton:hover,
+      #linkButton:hover,
+      #newButton:hover,
+      #changeBackgroundButton:hover {
+        opacity: 0.8;
+      }
+
+      #birthdayMessage {
+        display: none;
+        margin-top: 30px;
+        font-size: 30px;
+        color: #05ffa8;
+        font-weight: bold;
+        font-style: italic;
+      }
+
+      #insertedImage {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Maintain aspect ratio while covering the entire document */
+        z-index: -1;
+        /* Place it behind other elements */
+      }
+    </style>
+  </head>
+
+  <body>
+    <audio id="backgroundMusic" autoplay loop>
+      <source src="birthdaymopa.mp3" type="audio/mp3" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <div class="happy-birthday" id="happyBirthday">
+      <!-- The content will be dynamically generated here -->
+    </div>
+
+    <button id="showMessageButton" onclick="showMessage()">
+      HAPPY BIRTHDAY ANGEL CUAGONNNNN
+    </button>
+
+    <button id="linkButton" onclick="goToLink()">MUSIC KA MUNA</button>
+    <button id="newButton" onclick="startCountdown()">
+      CRINGE VID EME LANG TO HAHAHAHAHAHA 5 secand antayin mo bai
+    </button>
+    <button id="changeBackgroundButton" onclick="changeBackground()">
+      HAHAH WAG MO MUNA I OPEN
+    </button>
+
+    <div>
+      <i> By: RHENZ G </i>
+    </div>
+
+    <div id="birthdayMessage"></div>
+
+    <script>
+      const textContainer = document.getElementById("happyBirthday");
+      const text = "Happy 21st Birthday";
+
+      // Split the text into individual letters
+      const letters = text.split("");
+
+      // Generate an element for each letter and append it to the container
+      letters.forEach((letter) => {
+        const letterElement = document.createElement("span");
+        letterElement.classList.add("letter");
+        letterElement.textContent = letter;
+        textContainer.appendChild(letterElement);
+      });
+
+      function showMessage() {
+        const birthdayMessage = document.getElementById("birthdayMessage");
+        birthdayMessage.textContent =
+          "SO AYAN HAPPY BIRTHDAY ANGEL CUAGONNNNNNNNNNNNNNNNNN, WISH YOU ALL THE BEST MAGPAKATATAG KA  AND ANG WISH KOLANG SAYO AYYYYYYYY MAGANDANG KALUSUGAN AND WAG KANG SUSUKO SA IYONG PANGARAP AND ANDITO LANG AKO BEH DI AKO MANG GUGULOI SA BUHAY MO SUSUPORTAHAN LANG KITA SA MGA GUSTO MO EHHEHEEHEH!";
+        birthdayMessage.style.display = "block";
+
+        // Create an image element
+        const imgElement = document.createElement("img");
+        imgElement.id = "insertedImage";
+        imgElement.src = "ganda.jpg"; // Replace with the path to your image
+        imgElement.alt = "Birthday Image";
+
+        // Append the image to the body
+        document.body.appendChild(imgElement);
+      }
+
+      function goToLink() {
+        // Open the link in a new window
+        window.open(
+          "https://www.youtube.com/watch?v=b6sczYHLx2A&list=RDb6sczYHLx2A&start_radio=1",
+          "_blank"
+        );
+      }
+
+      function startCountdown() {
+        // Change the URL to the desired link after 5 seconds
+        setTimeout(function () {
+          window.location.href =
+            "https://drive.google.com/file/d/1dDM2yvFmQs9uZ5wxiOZ1cDtY3vFsdTpO/view?usp=sharing"; // Replace with your link
+        }, 5000);
+      }
+
+      function changeBackground() {
+        // Change the background to a different image
+        document.body.style.background =
+          "url('WAGOPEN.jpg') center/cover no-repeat";
+      }
+    </script>
+  </body>
+</html>
